@@ -1,0 +1,22 @@
+.menu {
+
+    &__list {}
+
+    &__item {}
+
+    &__link {}
+}
+
+.top {
+    &__layer {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+.arrows {}

@@ -1,0 +1,9 @@
+.top__layer {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}/*# sourceMappingURL=style.css.map */

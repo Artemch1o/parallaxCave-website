@@ -25,10 +25,6 @@ a {
         gap: 60px;
 
     }
-
-    &__item {}
-
-    &__link {}
 }
 
 
@@ -37,8 +33,7 @@ a {
     height: 500vh;
 
     &__content {
-        font-family: "Dancing Script",
-            cursive;
+        font-family: "Dancing Script", cursive;
         position: relative;
         z-index: 1;
         animation-name: text;
@@ -81,10 +76,26 @@ a {
         animation-timeline: scroll();
         animation-fill-mode: both;
         animation-range: 0 500vh;
-    }
 
-    &__layer--5 {
-        animation-name: top-layer-5;
+        &--5 {
+            animation-name: top-layer-5;
+        }
+
+        &--4 {
+            animation-name: top-layer-4;
+        }
+
+        &--3 {
+            animation-name: top-layer-3;
+        }
+
+        &--2 {
+            animation-name: top-layer-2;
+        }
+
+        &--1 {
+            animation-name: top-layer-1;
+        }
     }
 
     @keyframes top-layer-5 {
@@ -93,18 +104,10 @@ a {
         }
     }
 
-    &__layer--4 {
-        animation-name: top-layer-4;
-    }
-
     @keyframes top-layer-4 {
         to {
             scale: 1.35;
         }
-    }
-
-    &__layer--3 {
-        animation-name: top-layer-3;
     }
 
     @keyframes top-layer-3 {
@@ -113,18 +116,10 @@ a {
         }
     }
 
-    &__layer--2 {
-        animation-name: top-layer-2;
-    }
-
     @keyframes top-layer-2 {
         to {
             scale: 2;
         }
-    }
-
-    &__layer--1 {
-        animation-name: top-layer-1;
     }
 
     @keyframes top-layer-1 {
@@ -136,7 +131,7 @@ a {
 
 .arrows-box {
     border: 1px solid #fff;
-    background-color: rgba(30, 30, 30, .7);
+    background-color: rgba(30, 30, 30, 0.7);
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -151,9 +146,7 @@ a {
         width: 10px;
         height: 10px;
         position: relative;
-        margin: 0 auto;
-
-
+        margin: 23px auto 0;
 
         &::after,
         &::before {
@@ -165,27 +158,47 @@ a {
             height: 100%;
             animation: arrow 3s linear infinite;
         }
-    }
-}
 
-.arrows-box::after {
-    animation: arrow 3s linear -1.5s;
+        &::after {
+            animation: arrow 3s linear infinite -1.5s;
+        }
+    }
 }
 
 @keyframes arrow {
     0% {
         opacity: 0;
+        transform: translate(0, -10px) rotate(-45deg);
     }
 
-    10% {}
+    10% {
+        opacity: 0;
+    }
 
     50% {
         opacity: 1;
+        transform: translate(0, 0) rotate(-45deg);
     }
 
-    90% {}
+    90% {
+        opacity: 0;
+    }
 
     100% {
         opacity: 0;
+        transform: translate(0, 10px) rotate(-45deg);
+    }
+}
+
+@supports (animation-timeline: scroll()) {
+    .top {
+        height: 500vh;
+    }
+
+    .top__layer {
+        animation-timing-function: linear;
+        animation-timeline: scroll();
+        animation-fill-mode: both;
+        animation-range: 0 500vh;
     }
 }

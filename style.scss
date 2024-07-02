@@ -1,14 +1,75 @@
-.menu {
+body {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    font-family: "Prompt", sans-serif;
+}
 
-    &__list {}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    padding: 60px 0;
+
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+
+    }
 
     &__item {}
 
     &__link {}
 }
 
+
+
 .top {
+    height: 500vh;
+
+    &__content {
+        font-family: "Dancing Script",
+            cursive;
+        position: relative;
+        z-index: 1;
+        animation-name: text;
+        opacity: 0;
+        animation-timeline: scroll();
+        animation-fill-mode: both;
+        animation-range: 150 350vh;
+        animation-timing-function: linear;
+    }
+
+    @keyframes text {
+        to {
+            opacity: 1;
+        }
+    }
+
+    &__title {
+        text-transform: uppercase;
+        font-size: 120px;
+        font-weight: 400;
+    }
+
+    &__subtitle {
+        font-size: 24px;
+    }
+
     &__layer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
         width: 100vw;
         height: 100vh;
         position: fixed;
@@ -16,7 +77,115 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+        animation-timing-function: linear;
+        animation-timeline: scroll();
+        animation-fill-mode: both;
+        animation-range: 0 500vh;
+    }
+
+    &__layer--5 {
+        animation-name: top-layer-5;
+    }
+
+    @keyframes top-layer-5 {
+        to {
+            scale: 1.25;
+        }
+    }
+
+    &__layer--4 {
+        animation-name: top-layer-4;
+    }
+
+    @keyframes top-layer-4 {
+        to {
+            scale: 1.35;
+        }
+    }
+
+    &__layer--3 {
+        animation-name: top-layer-3;
+    }
+
+    @keyframes top-layer-3 {
+        to {
+            scale: 1.5;
+        }
+    }
+
+    &__layer--2 {
+        animation-name: top-layer-2;
+    }
+
+    @keyframes top-layer-2 {
+        to {
+            scale: 2;
+        }
+    }
+
+    &__layer--1 {
+        animation-name: top-layer-1;
+    }
+
+    @keyframes top-layer-1 {
+        to {
+            scale: 4;
+        }
     }
 }
 
-.arrows {}
+.arrows-box {
+    border: 1px solid #fff;
+    background-color: rgba(30, 30, 30, .7);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+
+    &__arrows {
+        width: 10px;
+        height: 10px;
+        position: relative;
+        margin: 0 auto;
+
+
+
+        &::after,
+        &::before {
+            content: "";
+            position: absolute;
+            border-bottom: 2px solid #fff;
+            border-left: 2px solid #fff;
+            width: 100%;
+            height: 100%;
+            animation: arrow 3s linear infinite;
+        }
+    }
+}
+
+.arrows-box::after {
+    animation: arrow 3s linear -1.5s;
+}
+
+@keyframes arrow {
+    0% {
+        opacity: 0;
+    }
+
+    10% {}
+
+    50% {
+        opacity: 1;
+    }
+
+    90% {}
+
+    100% {
+        opacity: 0;
+    }
+}
